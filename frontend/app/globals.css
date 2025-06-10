@@ -1,0 +1,43 @@
+/* File: frontend/app/globals.css */
+
+@import "tailwindcss"; /* Baris ini bisa dipertahankan jika Anda menggunakan Tailwind CSS */
+
+/* Variabel warna dasar dan font */
+:root {
+  --background: #ffffff; /* Warna latar belakang untuk mode terang */
+  --foreground: #171717; /* Warna teks untuk mode terang */
+  
+  /* Variabel --font-inter akan di-inject oleh Next.js dari layout.js ke elemen <html> */
+  /* Kita akan mendefinisikan --font-sans di sini untuk digunakan oleh body */
+  --font-sans: var(--font-inter); 
+
+  /* Variabel warna yang sebelumnya ada di @theme inline, sekarang di :root */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a; /* Warna latar belakang untuk mode gelap */
+    --foreground: #ededed; /* Warna teks untuk mode gelap */
+    
+    /* Variabel warna untuk mode gelap juga perlu diupdate di sini */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+  }
+}
+
+body {
+  background: var(--color-background); 
+  color: var(--color-foreground);
+  
+  /* Menggunakan --font-sans (yang sudah di-set ke --font-inter) sebagai font utama */
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Catatan: Style untuk garis bracket (.bracket-container) telah saya pindahkan 
+  ke dalam file BracketDisplayClient.jsx menggunakan <style jsx global>
+  agar lebih terpusat dan mudah dikelola. Anda bisa menghapusnya dari sini 
+  untuk menghindari duplikasi.
+*/
+
